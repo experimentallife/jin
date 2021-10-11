@@ -6,4 +6,6 @@ class Resources
 {
     public:
         static std::string getMenuBackgroudTexture();
-}
+};
+
+#endif

@@ -9,9 +9,15 @@
 #include <time.h>
 #include <fstream>
 #include <sstream>
-#include <SFML/Graphcs.hpp>
+#include <SFML/Graphics.hpp>
+
+#include "resources.h"
+#include "game.h"
 
 #define FPS 60
 #define HEIGHT 768
 #define WIDTH 1280
 
+class Game;
+
+#endif
