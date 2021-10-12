@@ -16,7 +16,7 @@ Game::~Game()
     ;
 }
 
-sf::RenderWindow && Game::getWindow()
+sf::RenderWindow & Game::getWindow()
 {
     return window;
 }

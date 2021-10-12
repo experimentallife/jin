@@ -19,7 +19,7 @@ set (HEADER_FILES
     include/game.h
 )
 
-set (CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/make)
+set (CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 find_package (SFML COMPONENTS system window graphics network audio)
 
 if(SFML_FOUND)
