@@ -13,6 +13,12 @@
 
 #include "resources.h"
 #include "game.h"
+#include "entity.h"
+#include "animation.h"
+#include "moveable.h"
+#include "character.h"
+#include "enemy.h"
+#include "menu.h"
 
 #define FPS 60
 #define HEIGHT 768

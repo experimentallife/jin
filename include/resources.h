@@ -5,7 +5,13 @@
 class Resources
 {
     public:
-        static std::string getMenuBackgroudTexture();
+        static std::string getMenuBackgroundTexture();
+        static std::string getMenuBackgroundFont();
+        static std::string getHeroTexture();
+        static std::string getBackgroundTexture();
+
+        static const std::string graphicsDirectory;
+        static const std::string fontsDirectory;
 };
 
 #endif
