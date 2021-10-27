@@ -2,47 +2,64 @@
 
 Entity::Entity()
 {
-    ID = -1;
-    dead = false;
-    canMove = false;
-    texture = new sf::Texture;
-    sprite.setScale(1.0f, 1.0f);
-    sprite.setPosition(0.0f, 0.0f);
-    sprite.setOrigin(sprite.getPosition() / 2.0f);
-    coords = sf::Vector2i(0, 0);
-    coordsFlt = sf::Vector2f(0.0f, 0.0f);
+	ID = -1;
+	dead = false;
+	canMove = false;
+	texture = new sf::Texture;
+	sprite.setScale(1.0f, 1.0f);
+	sprite.setPosition(0.0f, 0.0f);
+	sprite.setOrigin(sprite.getPosition() / 2.0f);
+	coords = sf::Vector2i(0, 0);
+	coordsFlt = sf::Vector2f(0.0f, 0.0f);
 }
+
 
 Entity::~Entity()
 {
-    ;
+	;
 }
 
 bool Entity::isStable()
 {
-    return !this->canMove;
+	if (this->canMove) return false;
+	else return true;
 }
 
 bool Entity::isMoveable()
 {
-    return this->canMove;
+	if (this->canMove)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 bool Entity::isDead()
 {
-    return this->dead;
+	return this->dead;
 }
 
-void Entity::destroy()
+bool Entity::destroy()
 {
-    this->dead = true;
+	if (!this->dead)
+	{
+		this->dead = true;
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 void Entity::setTexture(sf::Texture * newTexture)
 {
-    if (texture != nullptr) delete this->texture;
-    texture = new sf::Texture(*newTexture);
-    sprite.setTexture(*texture);
+	if (texture != nullptr) delete this->texture;
+	texture = new sf::Texture(*newTexture);
+	sprite.setTexture(*texture);
 	sprite.setScale(1.0f, 1.0f);
 	sprite.setPosition(0.0f, 0.0f);
 	sprite.setOrigin(sprite.getPosition() / 2.0f);
@@ -61,7 +78,8 @@ void Entity::setCoords(sf::Vector2i newCoords)
 	this->coords = newCoords;
 }
 
-sf::Vector2i Entity::getCoords()
+
+sf::Vector2i Entity::getCoords() 
 {
 	return sf::Vector2i(this->coords);
 }

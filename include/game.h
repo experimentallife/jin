@@ -1,26 +1,35 @@
 #ifndef GAME_H_
 #define GAME_H_
 
-enum GameState { MENU = 0, GAME = 1, END = 2 };
+// GameState represents possible states that application can be in.
+enum GameState
+{
+	MENU = 0,
+	GAME = 1,
+	END = 2
+};
 
+// Game is a singleton that manages main application flow.
 class Game
 {
-    protected:
-        sf::RenderWindow window;
-        GameState state;
-        int lastPoints;
-        float lastTime;
+public:
+	inline static const std::string GAME_NAME = "Platformer";
 
-    public:
-        Game();
-        ~Game();
+	void run();
+	void updateScore(int, float);
 
-        sf::RenderWindow & getWindow();
-        GameState getState();
-        void setState(GameState);
+	sf::RenderWindow &getWindow();
+	GameState getState();
+	void setState(GameState);
 
-        void run();
-        void updateScore(int, float);
+	Game();
+	~Game();
+
+protected:
+	sf::RenderWindow window;
+	GameState state;
+	int lastPoints;
+	float lastTime;
 };
 
 #endif

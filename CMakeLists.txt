@@ -10,13 +10,50 @@ set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 
 set (SFML_ROOT "/usr/include/SFML")
 
-set (SOURCE_FILES
-    src/main.cpp
-    src/game.cpp
+set (SOURCE_FILES 
+	src/main.cpp
+	src/animation.cpp
+	src/button.cpp
+	src/character.cpp
+	src/constants.cpp
+	src/enemy.cpp
+	src/engine.cpp
+	src/entity.cpp
+	src/game.cpp
+	src/game-over.cpp
+	src/hero.cpp
+	src/interface.cpp
+	src/level.cpp
+	src/menu.cpp
+	src/moveable.cpp
+	src/other.cpp
+	src/resources.cpp
+	src/spell.cpp
+	src/stable.cpp
+	src/tile.cpp
 )
 
 set (HEADER_FILES
-    include/game.h
+	include/animation.h
+	include/button.h
+	include/basic.h
+	include/character.h
+	include/constants.h
+	include/enemy.h
+	include/engine.h
+	include/entity.h
+	include/game.h
+	include/game-over.h
+	include/hero.h
+	include/interface.h
+	include/level.h
+	include/menu.h
+	include/moveable.h
+	include/resources.h
+	include/spell.h
+	include/stable.h
+	include/tile.h
+	include/wektor.h
 )
 
 set (CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)

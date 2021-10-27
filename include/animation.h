@@ -1,31 +1,33 @@
 #ifndef ANIMATION_H_
 #define ANIMATION_H_
 
+// Animation divides an image into sections and loads them one by one,
+// resulting in a dynamic presentation of an object.
 class Animation
 {
-	protected:
-		sf::Vector2u imageCount;
-		sf::Vector2u currentImage;
-		sf::IntRect uvRect;
+public:
+	void update(int, float, bool);
 
-		float totalTime;
-		float switchTime;
-		bool forward;
+	sf::IntRect getIntRect();
+	void setSwitchTime(float);
+	void setSize(sf::Texture);
+	void setImageCount(sf::Vector2u);
+	bool isForward();
 
-	public:
-		Animation();
-		Animation(sf::Texture*);
-		Animation(sf::Vector2u, float);
-		Animation(sf::Texture*, sf::Vector2u, float);
-		~Animation();
+	Animation();
+	Animation(sf::Texture *);
+	Animation(sf::Vector2u, float);
+	Animation(sf::Texture *, sf::Vector2u, float);
+	~Animation();
 
-		void setSwitchTime(float);
-		void setSize(sf::Texture);
-		void setImageCount(sf::Vector2u);
-		bool isForward();
+protected:
+	sf::Vector2u imageCount;
+	sf::Vector2u currentImage;
+	sf::IntRect uvRect;
 
-		void update(int, float, bool);
-		sf::IntRect getIntRect() { return this->uvRect; }
+	float totalTime;
+	float switchTime;
+	bool forward;
 };
 
 #endif

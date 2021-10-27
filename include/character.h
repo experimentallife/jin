@@ -6,59 +6,59 @@ enum Direction { UNKNOWN = 0, LEFT = 1, RIGHT = 2, UP = 3, DOWN = 4 };
 #define MIN_HEALTH 1
 #define MAX_HEALTH 10
 
+// Character is a movable object that can perform actions.
 class Character : public Moveable
 {
-	protected:
-		std::string name;
-		int health, mana;
-		
-		sf::Vector2f movement;
-		sf::Vector2f lastMovement;
-		Animation animation;
-		Direction lastDirection;
-		unsigned int row;
-		float tempDelta;
-		float moveSpeed;
-		float jumpSpeed;
-		float gravity;
-		float offset;
-		float groundHeight;
-		
-		bool faceRight, isJumping, isFalling, isColliding; 
-		bool debuffActive;
-		bool pendingSpell;
+public:
+	virtual void draw(sf::RenderWindow &);
+	virtual bool collision(Entity *);
+	virtual void update(float);
+	
+	int getHealth();
+	Direction getLastDirection();
+	sf::Vector2f getLastMovement();
+	bool isFacingRight();
+	bool isSpellPending();
+	void move(sf::Vector2f);
+	void slow(float);
+	void hurt(float);
 
-	public:
-		bool canMoveRight, canMoveLeft, canJump, canFall;
+	void setX(float);
+	void setY(float);
+	void setName(const std::string &); 
+	void setHealth(int);
+	void setMana(int);
+	void setDirection(bool);
+	void setCollisionState(bool);
 
-	public:
-		Character();
-		Character(sf::Texture*);
-		Character(sf::Vector2u, float);
-		Character(sf::Texture*, sf::Vector2u, float);
-		virtual  ~Character();
+	Character();
+	Character(sf::Texture*);
+	Character(sf::Vector2u, float);
+	Character(sf::Texture*, sf::Vector2u, float);
+	virtual ~Character();
 
-		int getHealth();
-		Direction getLastDirection();
-		sf::Vector2f getLastMovement();
-		
-		void setX(float);
-		void setY(float);
-		void setName(const std::string &);
-		void setHealth(int);
-		void setMana(int);
-		void setDirection(bool);
-		void setCollisionState(bool);
+	bool canMoveRight, canMoveLeft, canJump, canFall;
 
-		bool isFacingRight();
-		bool isSpellPending();
-		void move(sf::Vector2f);
-		void slow(float);
-		void hurt(float);
-		
-		virtual void draw(sf::RenderWindow &);
-		virtual bool collision(Entity *);
-		virtual void update(float);
+protected:
+	std::string name;
+	int health, mana;
+	
+	sf::Vector2f movement;
+	sf::Vector2f lastMovement;
+
+	Animation animation;
+	Direction lastDirection;
+
+	unsigned int row;
+	float tempDelta;
+	float moveSpeed;
+	float jumpSpeed;
+	float gravity;
+	float offset; 
+	float groundHeight;
+	bool faceRight, isJumping, isFalling, isColliding; 
+	bool debuffActive; 
+	bool pendingSpell;
 };
 
 #endif

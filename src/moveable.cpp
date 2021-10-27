@@ -1,11 +1,13 @@
 #include "../include/basic.h"
 
+
 Moveable::Moveable() : Entity()
 {
-    canMove = true;
+	canMove = true;
 };
 
-Moveable::~Moveable()
+
+Moveable::~Moveable() 
 {
-    ;
+	;
 };

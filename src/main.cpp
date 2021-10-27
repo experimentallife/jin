@@ -2,8 +2,9 @@
 
 int main()
 {
-    Game game;
-    game.run();
+	Game * const game = new Game();
+	game->run();
+	delete game;
 
-    return 0;
+	return 0;
 }
