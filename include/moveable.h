@@ -1,0 +1,15 @@
+#ifndef MOVEABLE_H_
+#define MOVEABLE_H_
+
+class Moveable : public Entity
+{
+    public:
+        Moveable();
+        virtual ~Moveable();
+
+        virtual void draw(sf::RenderWindow &) = 0;
+        virtual bool collision(Entity *) = 0;
+        virtual void update(float) = 0;
+};
+
+#ifndef

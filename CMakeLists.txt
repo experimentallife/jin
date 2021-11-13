@@ -12,9 +12,13 @@ set (SFML_ROOT "/usr/include/SFML")
 
 set (SOURCE_FILES 
 	src/main.cpp
+	src/game.cpp
 )
 
 set (HEADER_FILES
+	include/basic.h
+	include/game.h
+	include/resources.h
 )
 
 set (CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
